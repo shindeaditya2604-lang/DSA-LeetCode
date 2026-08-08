@@ -1,0 +1,28 @@
+"""
+LeetCode 169 - Majority Element
+
+Pattern:
+Boyer-Moore Voting Algorithm
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+"""
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        count = {}
+        for num in nums:
+            if num in count:
+                count[num] += 1
+            else:
+                count[num] = 1
+        
+        for key,value in count.items():
+            if value > len(nums)//2:
+                return key
+
+
+        
